@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base - Bot & Employee Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Knowledge Base</h1>
+            <p class="subtitle">Documentation hub for bots and employees</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+        </div>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul id="categoryList" class="category-list">
+                    <!-- Categories populated by JS -->
+                </ul>
+                <button id="addCategoryBtn" class="btn-secondary">+ Add Category</button>
+            </aside>
+
+            <main class="content">
+                <div id="articlesContainer" class="articles-grid">
+                    <!-- Articles populated by JS -->
+                </div>
+                <div id="articleView" class="article-view hidden">
+                    <button id="backBtn" class="btn-back">← Back to Articles</button>
+                    <div id="articleContent"></div>
+                    <button id="editArticleBtn" class="btn-primary">Edit Article</button>
+                </div>
+            </main>
+        </div>
+
+        <button id="addArticleBtn" class="fab">+</button>
+    </div>
+
+    <!-- Modal for adding/editing articles -->
+    <div id="articleModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modalTitle">New Article</h2>
+            <form id="articleForm">
+                <input type="text" id="articleTitle" placeholder="Article Title" required class="input-field">
+                <select id="articleCategory" required class="input-field">
+                    <option value="">Select Category</option>
+                </select>
+                <textarea id="articleBody" placeholder="Write your article in Markdown..." required class="textarea-field"></textarea>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Save</button>
+                    <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for adding categories -->
+    <div id="categoryModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>New Category</h2>
+            <form id="categoryForm">
+                <input type="text" id="categoryName" placeholder="Category Name" required class="input-field">
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Add</button>
+                    <button type="button" id="cancelCategoryBtn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
